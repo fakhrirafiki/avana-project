@@ -9,9 +9,9 @@ const Routes = () => {
                 <Route exact path="/">
                     <MainApp />
                 </Route>
-                {/* <Route path="/login">
+                <Route path="/login">
                     <h2>Fakhri Rafiki</h2>
-                </Route> */}
+                </Route>
             </Switch>
         </Router>
     )

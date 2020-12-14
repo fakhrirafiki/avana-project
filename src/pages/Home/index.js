@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { SidebarContainer } from '../../containers/sidebar';
 
-const Home = () => {
+export default function Home() {
     return (
-        <h2>ok</h2>
+        <SidebarContainer />
     )
 }
-
-export default Home
