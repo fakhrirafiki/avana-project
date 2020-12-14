@@ -1,12 +1,14 @@
-// import './App.css';
+import React from 'react';
+import './App.css';
+import { Routes } from '../config';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 
 function App() {
   return (
-
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
-
+      <Provider store={store}> 
+        <Routes />
+      </Provider>
   );
 }
 
