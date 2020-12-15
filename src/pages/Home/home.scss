@@ -1,0 +1,187 @@
+.wrapper-home {
+    padding: 20px 60px 0px 60px;
+
+    .wrapper-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 40px;
+
+        .wrapper-item-content {
+            width: 500px;
+
+            .title-widget {
+                margin: 0px;
+                font-size: 16px;
+                color: #4a4a4a;
+                font-weight: 500;
+            }
+
+            .card { 
+                background-color: #FFFF;
+                margin-right: 30px;
+                margin-bottom: 30px;
+                border-radius: 10px;
+                padding: 20px;
+
+                .wrapper-content-statistik {
+                    display: flex;
+                    flex-direction: row;
+
+                    .item-content-statistik {
+                        flex: 1;
+                        padding-left: 10px;
+
+                        .img-icon {
+                            width: 23px;
+                            object-fit: contain;
+                        }
+
+                        .text-value {
+                            margin: 0px;
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #4a4a4a;
+                        }
+
+                        .text-desc {
+                            margin: 0px;
+                            font-size: 14px;
+                            color: #999;
+                        }
+                    }
+
+                    .item-center {
+                        border: 1px solid #ecf0f1;
+                        border-top: 0px;
+                        border-bottom: 0px;
+                    }
+                }    
+                
+                .wrapper-footer-statistik {
+                    display: flex;
+                    border-top: 2px solid #60d28d;
+                    justify-content: space-around;
+                    padding-top: 5px;
+
+                    .text-footer {
+                        margin: 0px;
+                        font-size: 12px;
+                        color: #4a4a4a;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .wrapper-content-status-pesanan {
+                display: flex;
+                flex-wrap: wrap;
+
+                .card {
+                    width: 190px;
+                    margin: 0px 20px 20px 0px;
+                    display: flex;
+                    align-items: center;
+
+                    .wrapper-icon {
+                        width: 48px;
+                        height: 48px;
+                        background-color: #fdefd0;
+                        display: flex;
+                        justify-content: center;
+                        border-radius: 10px;
+
+                        .image-icon {
+                            width: 18px;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .purple {
+                        background-color: #cee1f9;
+                    }
+
+                    .blue {
+                        background-color: #dde8fd;
+                    }
+
+                    .green {
+                        background-color: #d4f5e8;
+                    }
+
+                    .red {
+                        background-color: #f8d8d4;
+                    }
+
+                    .image-icon-next {
+                        width: 20px;
+                        object-fit: contain;
+                    }
+
+                    .wrapper-text {
+                        flex: 1;
+
+                        .text-value {
+                            margin: 0px;
+                            font-size: 14px;
+                            color: #4a4a4a;
+                            font-weight: 500;
+                        }
+
+                        .desc-value {
+                            margin: 0px;
+                            font-size: 12px;
+                            color: #999;
+                        }
+                    }
+                }
+            }
+
+            .notice {
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .image-sad {
+                    width: 100px;
+                    object-fit: contain;
+                }
+
+                .text-desc {
+                    margin: 0px;
+                    font-size: 14px;
+                    color: #999;
+                    font-weight: 500;
+                }
+
+                .btn-pesanan {
+                    background-color: #fad378;
+                    padding: 10px;
+                    border-radius: 25px;
+
+                    .textButton {
+                        margin: 0px;
+                        font-size: 14px;
+                        color: #999;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .text-home-title {
+        margin: 0px;
+        font-size: 35px;
+        font-weight: 300;
+        color: #4a4a4a;
+    }
+
+    .text-home-desc {
+        margin: 0px;
+        font-size: 15px;
+        color: #999;
+    }
+}

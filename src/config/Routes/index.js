@@ -6,11 +6,11 @@ const Routes = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path="/">
-                    <MainApp />
-                </Route>
                 <Route path="/login">
-                    <h2>Fakhri Rafiki</h2>
+                    <h2>Login Page</h2>
+                </Route>
+                <Route path="/">
+                    <MainApp />
                 </Route>
             </Switch>
         </Router>

@@ -6,13 +6,19 @@ import { MainAppWrapper, ContentWrapper } from './styles/MainApp'
 
 const MainApp = () => {
     return (
-        <MainAppWrapper className="main-app-wrapper">
+        <MainAppWrapper>
             <SidebarContainer />
-            <ContentWrapper className="content-wrapper">
+            <ContentWrapper>
                 <Router>
                     <Switch>
-                        <Route path="/">
+                        <Route exact path="/">
                             <Home />
+                        </Route>
+                        <Route path="/1">
+                            <h1>111111</h1>
+                        </Route>
+                        <Route path="/2">
+                            <h1>22222</h1>
                         </Route>
                     </Switch>
                 </Router>
@@ -22,3 +28,4 @@ const MainApp = () => {
 }
 
 export default MainApp
+

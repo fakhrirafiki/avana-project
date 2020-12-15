@@ -4,10 +4,13 @@ export const SidebarWrapper = styled.div`
         display: flex;
         flex-direction: column;
         background-color: #fff;
-        /* background-color: #eee; */
+        /* background-color: red; */
         min-height: 100vh;
-        width: 270px;
-        border-right: 1px solid #eee
+        min-width: 270px;
+        border-right: 1px solid #eee;
+        -webkit-box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
+        -moz-box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
+        box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
 `;
 
 export const ImageWrapper = styled.div`
@@ -74,7 +77,7 @@ export const TextItemMenu = styled.div`
         font-weight: 500;
         color: #999;
         flex: 1;
-        padding: 15px 20px 15px 50px;
+        padding: 5px ;
 
         ${({ isAllowed }) => !isAllowed && css`
                 cursor: not-allowed;

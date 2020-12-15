@@ -29,7 +29,6 @@ const MenuItem = ({ obj, name, image }) => {
 }
 
 const SubMunuItem = ({ child }) => {
-    const [toggleIconMenu, setToggleIconMenu] = useState(false)
     const [toggleSubSubMenu, setToggleSubSubMenu] = useState(false)
 
     if (!child.isShowed) return false
@@ -70,40 +69,39 @@ export function SidebarContainer() {
     const modules = stateGlobal.Home.home[7]
 
     return (
-        <div>
-            <Sidebar>
-                <Sidebar.ImageWrapper>
-                    <Sidebar.LogoImage src={ImgLogo} alt="imageLogo" />
-                </Sidebar.ImageWrapper>
-                <Gap height={20} />
-                <Sidebar.WrapperButtonStatus>
-                    <Sidebar.TextButtonStatus>Admin</Sidebar.TextButtonStatus>
-                </Sidebar.WrapperButtonStatus>
-                <Gap height={20} />
-                <Sidebar.WrapperContentSidebar>
-                    <MenuItem obj={dashboard} name='Dashboard' image={IcMenuActive} />
-                    <MenuItem obj={hq} name='HQ' image={IcGlobe} />
-                    <MenuItem obj={agent} name='AGENT' image={IcPemasaran} />
-                    <MenuItem obj={orders} name='ORDERS' image={IcPesanan} />
-                    <MenuItem obj={products} name='PRODUCTS' image={IcProducts} />
-                    <MenuItem obj={webstore} name='WEBSTORE' image={IcPemasaran} />
-                    <MenuItem obj={settings} name='SETTINGS' image={IcSetting} />
-                    <MenuItem obj={modules} name='MODULES' image={IcModul} />
+        <Sidebar>
+            <Sidebar.ImageWrapper>
+                <Sidebar.LogoImage src={ImgLogo} alt="imageLogo" />
+            </Sidebar.ImageWrapper>
+            <Gap height={20} />
+            <Sidebar.WrapperButtonStatus>
+                <Sidebar.TextButtonStatus>Admin</Sidebar.TextButtonStatus>
+            </Sidebar.WrapperButtonStatus>
+            <Gap height={20} />
+            <Sidebar.WrapperContentSidebar>
+                <MenuItem obj={dashboard} name='Dashboard' image={IcMenuActive} />
+                <MenuItem obj={hq} name='HQ' image={IcGlobe} />
+                <MenuItem obj={agent} name='AGENT' image={IcPemasaran} />
+                <MenuItem obj={orders} name='ORDERS' image={IcPesanan} />
+                <MenuItem obj={products} name='PRODUCTS' image={IcProducts} />
+                <MenuItem obj={webstore} name='WEBSTORE' image={IcPemasaran} />
+                <MenuItem obj={settings} name='SETTINGS' image={IcSetting} />
+                <MenuItem obj={modules} name='MODULES' image={IcModul} />
 
-                    <Gap height={40} />
-                    <Sidebar.WrapperItemMenu isAllowed>
-                        <Sidebar.IconMenuImage src={IcTanggapan} alt="imageIcon" />
-                        <Gap width={10} />
-                        <Sidebar.TextItemMenu isAllowed>Tanggapan</Sidebar.TextItemMenu>
-                    </Sidebar.WrapperItemMenu >
-                    <Gap height={40} />
-                    <Sidebar.WrapperItemMenu isAllowed>
-                        <Sidebar.IconMenuImage src={IcLogout} alt="imageIcon" />
-                        <Gap width={10} />
-                        <Sidebar.TextItemMenu isAllowed>Logout</Sidebar.TextItemMenu>
-                    </Sidebar.WrapperItemMenu>
-                </Sidebar.WrapperContentSidebar>
-            </Sidebar>
-        </div>
+                <Gap height={40} />
+                <Sidebar.WrapperItemMenu isAllowed>
+                    <Sidebar.IconMenuImage src={IcTanggapan} alt="imageIcon" />
+                    <Gap width={10} />
+                    <Sidebar.TextItemMenu isAllowed>Tanggapan</Sidebar.TextItemMenu>
+                </Sidebar.WrapperItemMenu >
+                <Gap height={40} />
+                <Sidebar.WrapperItemMenu isAllowed>
+                    <Sidebar.IconMenuImage src={IcLogout} alt="imageIcon" />
+                    <Gap width={10} />
+                    <Sidebar.TextItemMenu isAllowed>Logout</Sidebar.TextItemMenu>
+                </Sidebar.WrapperItemMenu>
+            </Sidebar.WrapperContentSidebar>
+        </Sidebar>
+
     )
 }
