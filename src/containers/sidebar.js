@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Sidebar, Gap } from '../components'
-import { IcMenuActive, ImgLogo, IcPesanan, IcProducts, IcDown, IcUp, IcGlobe, IcSetting, IcPemasaran, IcModul, IcTanggapan, IcLogout } from '../assets'
+import { IcMenuActive, ImgLogo, IcPesanan, IcProducts, IcDown, IcUp, IcGlobe, IcSetting, IcPemasaran, IcModul, IcTanggapan, IcLogout, IcNext } from '../assets'
 
 
 const MenuItem = ({ obj, name, image }) => {
@@ -21,31 +21,44 @@ const MenuItem = ({ obj, name, image }) => {
             {/* {if(!obj.childs) return} */}
             {obj.childs && toggleIconMenu &&
                 <Sidebar.WrapperItemSubmenu>
-                    {obj.childs.map((child) => {
-                        if (!child.isShowed) return false
-                        return <Sidebar.TextItemMenu key={child.id} isAllowed={child.isAllowed}>{child.id}</Sidebar.TextItemMenu>
-                    })}
+                    {obj.childs.map((child) => < SubMunuItem child={child} key={child.id} />)}
                 </Sidebar.WrapperItemSubmenu>
             }
         </>
     )
 }
 
-const SubMunuItem = (child) => {
+const SubMunuItem = ({ child }) => {
     const [toggleIconMenu, setToggleIconMenu] = useState(false)
+    const [toggleSubSubMenu, setToggleSubSubMenu] = useState(false)
 
-    return <Sidebar.TextItemMenu className={`${!child.isAllowed && 'not-allowed'}`}>{child.id}</Sidebar.TextItemMenu>
+    if (!child.isShowed) return false
+    return (<>
+        <Sidebar.TextItemMenu isAllowed={child.isAllowed}
+            onMouseEnter={() => setToggleSubSubMenu(!toggleSubSubMenu)}
+            onMouseLeave={() => setToggleSubSubMenu(!toggleSubSubMenu)}
+        >
+            {child.id}
+            {child.childs && <Sidebar.IconButtonArrow src={IcNext} alt="imageIcon" />}
+            {child.childs && toggleSubSubMenu &&
+                <Sidebar.WrapperItemSubSubmenu >
+                    {
+                        child.childs.map((grandChild) => {
+                            if (!grandChild.isShowed) return false
+                            return <Sidebar.TextItemMenu isAllowed={grandChild.isAllowed} key={grandChild.id}>{grandChild.id}</Sidebar.TextItemMenu>
+                        })
 
+                    }
+                </Sidebar.WrapperItemSubSubmenu>
+            }
+        </Sidebar.TextItemMenu>
+    </>)
 }
-
-
-
 
 
 
 export function SidebarContainer() {
     const stateGlobal = useSelector(state => state)
-    const [showSubmenu, setShowSubmenuProduct] = useState(false)
 
     const dashboard = stateGlobal.Home.home[0]
     const hq = stateGlobal.Home.home[1]

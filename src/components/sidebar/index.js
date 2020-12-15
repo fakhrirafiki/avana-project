@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu, WrapperItemSubmenu, IconButtonArrow } from './styles/sidebar';
+import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu, WrapperItemSubmenu, IconButtonArrow, WrapperItemSubSubmenu } from './styles/sidebar';
 
 
 
@@ -50,4 +50,11 @@ Sidebar.WrapperItemSubmenu = function SidebarWrapperItemSubmenu({ children, ...r
 
 Sidebar.IconButtonArrow = function SidebarIconButtonArrow({ children, ...restProps }) {
     return <IconButtonArrow {...restProps} />;
+}
+
+//RONDE 4
+
+
+Sidebar.WrapperItemSubSubmenu = function SidebarWrapperItemSubSubmenu({ children, ...restProps }) {
+    return <WrapperItemSubSubmenu {...restProps}>{children}</WrapperItemSubSubmenu>;
 }

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 
 export const SidebarWrapper = styled.div`
         display: flex;
@@ -68,7 +68,7 @@ export const IconMenuImage = styled.img`
 
 
 
-export const TextItemMenu = styled.p`
+export const TextItemMenu = styled.div`
         margin: 0px;
         font-size: 16px;
         font-weight: 500;
@@ -81,6 +81,11 @@ export const TextItemMenu = styled.p`
                 pointer-events: none;
                 opacity: 0.3;
         `}
+
+        display: flex;
+        justify-content: space-between;
+
+        position: relative;
 `;
 
 // RONDE 3
@@ -94,4 +99,22 @@ export const WrapperItemSubmenu = styled.div`
 export const IconButtonArrow = styled.img`
         width: 18px;
         object-fit: contain;
+        /* margin-left:auto */
+`;
+
+// RONDE 4
+export const WrapperItemSubSubmenu = styled.div`
+        background-color: #fff;
+        min-width:270px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        border-radius: 18px;
+        -webkit-box-shadow: 2px 3px 14px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 3px 14px -9px rgba(0,0,0,0.75);
+        box-shadow: 2px 3px 14px -9px rgba(0,0,0,0.75);
+
+        position:absolute;
+        right: -95%;
 `;
