@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SidebarWrapper = styled.div`
         display: flex;
@@ -52,6 +52,13 @@ export const WrapperItemMenu = styled.div`
         padding: 15px 20px 15px 20px;
         align-items: center;
         cursor: pointer;
+
+        ${({ isAllowed }) => !isAllowed && css`
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.3;
+        `}
+
 `;
 
 export const IconMenuImage = styled.img`
@@ -67,5 +74,24 @@ export const TextItemMenu = styled.p`
         font-weight: 500;
         color: #999;
         flex: 1;
+        padding: 15px 20px 15px 50px;
+
+        ${({ isAllowed }) => !isAllowed && css`
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.3;
+        `}
 `;
 
+// RONDE 3
+
+export const WrapperItemSubmenu = styled.div`
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+`;
+
+export const IconButtonArrow = styled.img`
+        width: 18px;
+        object-fit: contain;
+`;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu } from './styles/sidebar';
+import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu, WrapperItemSubmenu, IconButtonArrow } from './styles/sidebar';
 
 
 
@@ -42,4 +42,12 @@ Sidebar.TextItemMenu = function SidebarTextItemMenu({ children, ...restProps }) 
     return <TextItemMenu {...restProps}>{children}</TextItemMenu>;
 }
 
+// RONDE 3
 
+Sidebar.WrapperItemSubmenu = function SidebarWrapperItemSubmenu({ children, ...restProps }) {
+    return <WrapperItemSubmenu {...restProps}>{children}</WrapperItemSubmenu>;
+}
+
+Sidebar.IconButtonArrow = function SidebarIconButtonArrow({ children, ...restProps }) {
+    return <IconButtonArrow {...restProps} />;
+}
