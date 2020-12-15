@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu, WrapperItemSubmenu, IconButtonArrow, WrapperItemSubSubmenu } from './styles/sidebar';
+import { SidebarWrapper, ImageWrapper, LogoImage, WrapperButtonStatus, TextButtonStatus, WrapperContentSidebar, WrapperItemMenu, IconMenuImage, TextItemMenu, TextItemSubMenu, WrapperItemSubmenu, IconButtonArrow, WrapperItemSubSubmenu } from './styles/sidebar';
 
 
 
@@ -40,6 +40,10 @@ Sidebar.IconMenuImage = function SidebarIconMenuImage({ children, ...restProps }
 
 Sidebar.TextItemMenu = function SidebarTextItemMenu({ children, ...restProps }) {
     return <TextItemMenu {...restProps}>{children}</TextItemMenu>;
+}
+
+Sidebar.TextItemSubMenu = function SidebarTextItemSubMenu({ children, ...restProps }) {
+    return <TextItemSubMenu {...restProps}>{children}</TextItemSubMenu>;
 }
 
 // RONDE 3

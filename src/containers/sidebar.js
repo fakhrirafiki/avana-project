@@ -8,8 +8,7 @@ const MenuItem = ({ obj, name, image }) => {
     const [toggleIconMenu, setToggleIconMenu] = useState(false)
     return (
         <>
-            {
-                obj.isShowed &&
+            {obj.isShowed &&
                 <Sidebar.WrapperItemMenu onClick={() => setToggleIconMenu(!toggleIconMenu)} isAllowed={obj.isAllowed}>
                     <Sidebar.IconMenuImage src={image} alt="imageIcon" />
                     <Gap width={10} />
@@ -33,7 +32,7 @@ const SubMunuItem = ({ child }) => {
 
     if (!child.isShowed) return false
     return (<>
-        <Sidebar.TextItemMenu isAllowed={child.isAllowed}
+        <Sidebar.TextItemSubMenu isAllowed={child.isAllowed}
             onMouseEnter={() => setToggleSubSubMenu(!toggleSubSubMenu)}
             onMouseLeave={() => setToggleSubSubMenu(!toggleSubSubMenu)}
         >
@@ -44,13 +43,12 @@ const SubMunuItem = ({ child }) => {
                     {
                         child.childs.map((grandChild) => {
                             if (!grandChild.isShowed) return false
-                            return <Sidebar.TextItemMenu isAllowed={grandChild.isAllowed} key={grandChild.id}>{grandChild.id}</Sidebar.TextItemMenu>
+                            return <Sidebar.TextItemSubMenu isAllowed={grandChild.isAllowed} key={grandChild.id}>{grandChild.id}</Sidebar.TextItemSubMenu>
                         })
-
                     }
                 </Sidebar.WrapperItemSubSubmenu>
             }
-        </Sidebar.TextItemMenu>
+        </Sidebar.TextItemSubMenu>
     </>)
 }
 
@@ -74,11 +72,11 @@ export function SidebarContainer() {
                 <Sidebar.LogoImage src={ImgLogo} alt="imageLogo" />
             </Sidebar.ImageWrapper>
             <Gap height={20} />
-            <Sidebar.WrapperButtonStatus>
-                <Sidebar.TextButtonStatus>Admin</Sidebar.TextButtonStatus>
-            </Sidebar.WrapperButtonStatus>
-            <Gap height={20} />
             <Sidebar.WrapperContentSidebar>
+                <Sidebar.WrapperButtonStatus>
+                    <Sidebar.TextButtonStatus>UPGRADE</Sidebar.TextButtonStatus>
+                </Sidebar.WrapperButtonStatus>
+                <Gap height={20} />
                 <MenuItem obj={dashboard} name='Dashboard' image={IcMenuActive} />
                 <MenuItem obj={hq} name='HQ' image={IcGlobe} />
                 <MenuItem obj={agent} name='AGENT' image={IcPemasaran} />

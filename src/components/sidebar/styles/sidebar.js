@@ -7,10 +7,14 @@ export const SidebarWrapper = styled.div`
         /* background-color: red; */
         min-height: 100vh;
         min-width: 270px;
-        border-right: 1px solid #eee;
-        -webkit-box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
-        -moz-box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
-        box-shadow: 53px -7px 39px -6px rgba(88,83,102,1);
+
+        -webkit-box-shadow: -6px -7px 39px -17px rgba(92,72,153,1);
+        -moz-box-shadow: -6px -7px 39px -17px rgba(92,72,153,1);
+        box-shadow: -6px -7px 39px -17px rgba(92,72,153,1);
+
+        /* position: sticky; */
+        top:0
+
 `;
 
 export const ImageWrapper = styled.div`
@@ -26,6 +30,7 @@ export const LogoImage = styled.img`
 `;
 
 export const WrapperButtonStatus = styled.div`
+        margin: 10px;
         background-color: #fdb816;
         padding: 7px 80px 7px 80px;
         text-align: center;
@@ -46,7 +51,9 @@ export const TextButtonStatus = styled.p`
 
 export const WrapperContentSidebar = styled.div`
         flex: 1;
-        /* overflow: scroll; */
+        /* position: sticky; */
+        /* overflow-y: scroll; */
+        /* overflow-x: visible  */
 `;
 
 export const WrapperItemMenu = styled.div`
@@ -91,6 +98,28 @@ export const TextItemMenu = styled.div`
         position: relative;
 `;
 
+export const TextItemSubMenu = styled.div`
+        margin: 0px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #999;
+        flex: 1;
+        padding: 15px 30px ;
+        /* background-color: red; */
+
+        ${({ isAllowed }) => !isAllowed && css`
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.3;
+                text-decoration: line-through;
+        `}
+
+        display: flex;
+        justify-content: space-between;
+
+        position: relative;
+`;
+
 // RONDE 3
 
 export const WrapperItemSubmenu = styled.div`
@@ -120,4 +149,7 @@ export const WrapperItemSubSubmenu = styled.div`
 
         position:absolute;
         right: -95%;
+        top: -5%;
+        z-index: 1000;
+
 `;

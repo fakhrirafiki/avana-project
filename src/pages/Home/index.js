@@ -1,54 +1,50 @@
 import React from 'react'
 import './home.scss'
-import { Gap, Wrapper, CardStats } from '../../components'
-import { SidebarContainer } from '../../containers/sidebar';
+import { Gap } from '../../components'
 import { IcTransaksi, IcDone, IcBag, IcStatusPesanan1, IcStatusPesanan2, IcStatusPesanan3, IcNext, IcClose, IcRefresh, ILSad } from '../../assets'
 
 const Home = () => {
     return (
-        <Wrapper className="wrapper-home">
-            <SidebarContainer />
-            <Wrapper.TextHomeTitle className="text-home-title">Dashboardmu</Wrapper.TextHomeTitle>
-            <Gap height={10} />
-            <Wrapper.TextHomeDesc className="text-home-desc">Selamat datang di dashboard terbaru kami</Wrapper.TextHomeDesc>
-            <Wrapper.WrapperContent className="wrapper-content">
-                <Wrapper.WrapperItemContent className="wrapper-item-content">
-                    <Wrapper.TitleWidget className="title-widget">Statistik Pesanan</Wrapper.TitleWidget>
+        <div className="wrapper-home">
+            <p className="text-home-title">Dashboardmu</p>
+            <Gap height={10}/>
+            <p className="text-home-desc">Selamat datang di dashboard terbaru kami</p>
+            <div className="wrapper-content">
+                <div className="wrapper-item-content">
+                    <p className="title-widget">Statistik Pesanan</p>
                     <Gap height={20} />
-
-                    <CardStats className="card">
-                        <CardStats.WrapperContent className="wrapper-content-statistik">
-                            <CardStats.ItemContent className="item-content-statistik">
-                                <CardStats.ImgIcon src={IcTransaksi} className="img-icon" alt="Icon Transaksi" />
+                    <div className="card">
+                        <div className="wrapper-content-statistik">
+                            <div className="item-content-statistik">
+                                <img src={IcTransaksi} className="img-icon" alt="Icon Transaksi" />
                                 <Gap height={10} />
-                                <CardStats.TextValue className="text-value">0</CardStats.TextValue>
+                                <p className="text-value">0</p>
                                 <Gap height={10} />
-                                <CardStats.TextDesc className="text-desc">Transaksi</CardStats.TextDesc>
-                            </CardStats.ItemContent>
-                            <CardStats.ItemContent className="item-content-statistik item-center">
-                                <CardStats.ImgIcon src={IcDone} className="img-icon" alt="Icon Transaksi" />
+                                <p className="text-desc">Transaksi</p>
+                            </div>
+                            <div className="item-content-statistik item-center">
+                                <img src={IcDone} className="img-icon" alt="Icon Transaksi" />
                                 <Gap height={10} />
-                                <CardStats.TextValue className="text-value">0</CardStats.TextValue>
+                                <p className="text-value">0</p>
                                 <Gap height={10} />
-                                <CardStats.TextDesc className="text-desc">Sukses</CardStats.TextDesc>
-                            </CardStats.ItemContent>
-                            <CardStats.ItemContent className="item-content-statistik">
-                                <CardStats.ImgIcon src={IcBag} className="img-icon" alt="Icon Transaksi" />
+                                <p className="text-desc">Sukses</p>
+                            </div>
+                            <div className="item-content-statistik">
+                                <img src={IcBag} className="img-icon" alt="Icon Transaksi" />
                                 <Gap height={10} />
-                                <CardStats.TextValue className="text-value">0</CardStats.TextValue>
+                                <p className="text-value">0</p>
                                 <Gap height={10} />
-                                <CardStats.TextDesc className="text-desc">Penjualan (IDR)</CardStats.TextDesc>
-                            </CardStats.ItemContent>
-                        </CardStats.WrapperContent>
+                                <p className="text-desc">Penjualan (IDR)</p>
+                            </div>
+                        </div>
                         <Gap height={165} />
-                        <CardStats.WrapperFooter className="wrapper-footer-statistik">
-                            <CardStats.TextFooter className="text-footer">6 December 2020</CardStats.TextFooter>
-                            <CardStats.TextFooter className="text-footer">16 December 2020</CardStats.TextFooter>
-                            <CardStats.TextFooter className="text-footer">26 December 2020</CardStats.TextFooter>
-                        </CardStats.WrapperFooter>
-                    </CardStats >
-
-                </Wrapper.WrapperItemContent>
+                        <div className="wrapper-footer-statistik">
+                            <p className="text-footer">6 December 2020</p>
+                            <p className="text-footer">16 December 2020</p>
+                            <p className="text-footer">26 December 2020</p>
+                        </div>
+                    </div>
+                </div>
                 <div className="wrapper-item-content">
                     <p className="title-widget">Status Pesanan</p>
                     <Gap height={20} />
@@ -126,7 +122,7 @@ const Home = () => {
                             <img src={IcNext} className="image-icon-next" alt="icon" />
                         </div>
                     </div>
-
+                    
                 </div>
                 <div className="wrapper-item-content">
                     <p className="title-widget">Product Terlaris</p>
@@ -150,12 +146,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </Wrapper.WrapperContent>
-        </Wrapper >
+            </div>
+        </div>
     )
 }
 
 export default Home
-
-
-
