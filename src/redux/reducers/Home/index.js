@@ -9,9 +9,6 @@ const initialState = {
 const Home = (state = initialState, action) => {
     switch (action.type) {
         case CLEAR_HOME_LIST:
-
-
-
             return {
                 ...state,
                 home: false
@@ -22,14 +19,14 @@ const Home = (state = initialState, action) => {
                 home: action.payload
             }
         case SET_MODULE_LIST:
-            const home = state.home
-            const childs = state.home[7].childs
-            const index = childs.findIndex((module) => module.id === action.payload.id);
-            childs[index] = action.payload;
-            home[7].childs = childs
+            // const home = state.home
+            // const childs = state.home[7].childs
+            // const index = childs.findIndex((module) => module.id === action.payload.id);
+            // childs[index] = action.payload;
+            // home[7].childs = childs
             return {
                 ...state,
-                home: home
+                home: action.payload
             }
         default:
             return state
@@ -37,9 +34,3 @@ const Home = (state = initialState, action) => {
 }
 
 export default Home
-
-// const payload = {
-//     "id": "google-shopping",
-//     "isShowed": true,
-//     "isAllowed": true
-// }

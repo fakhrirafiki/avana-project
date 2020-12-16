@@ -11,11 +11,20 @@ export const GlobalStyles = createGlobalStyle`
 
     a{
         text-decoration: none;
+        color:inherit;
+    }
+
+    th {
+        font-size: 16px !important;
+    }
+
+    td {
+        font-size: 14px !important;
     }
 
     /* width */
         ::-webkit-scrollbar {
-        width: 3px;
+        width: 7px;
         }
 
         /* Track */

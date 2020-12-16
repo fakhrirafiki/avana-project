@@ -65,7 +65,7 @@ const ModulesTable = () => {
                 <TableBody>
                     {rows.map((module) => {
                         // eslint-disable-next-line no-lone-blocks
-                        { if (module.id === 'all-module') return false }
+                        // { if (module.id === 'all-module') return false }
                         return (
                             <TableRow key={module.id}>
                                 <TableCell component="th" scope="row">{module.id}</TableCell>

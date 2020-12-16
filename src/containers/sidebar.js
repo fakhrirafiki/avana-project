@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Sidebar, Gap } from '../components'
 import { IcMenuActive, ImgLogo, IcPesanan, IcProducts, IcDown, IcUp, IcGlobe, IcSetting, IcPemasaran, IcModul, IcTanggapan, IcLogout, IcNext } from '../assets'
 
 
-const MenuItem = ({ obj, name, image }) => {
+const MenuItem = ({ obj, name, image, url }) => {
     const [toggleIconMenu, setToggleIconMenu] = useState(false)
     return (
         <>
             {obj.isShowed &&
                 <Sidebar.WrapperItemMenu onClick={() => setToggleIconMenu(!toggleIconMenu)} isAllowed={obj.isAllowed}>
+
                     <Sidebar.IconMenuImage src={image} alt="imageIcon" />
                     <Gap width={10} />
                     <Sidebar.TextItemMenu isAllowed>{name}</Sidebar.TextItemMenu>
 
                     {obj.childs && <Sidebar.IconButtonArrow src={toggleIconMenu ? IcDown : IcUp} alt="imageIcon" />}
+
                 </Sidebar.WrapperItemMenu>
             }
             {/* {if(!obj.childs) return} */}
-            {obj.childs && toggleIconMenu &&
+            {
+                obj.childs && toggleIconMenu &&
                 <Sidebar.WrapperItemSubmenu>
                     {obj.childs.map((child) => < SubMunuItem child={child} key={child.id} />)}
                 </Sidebar.WrapperItemSubmenu>
@@ -57,8 +60,7 @@ const SubMunuItem = ({ child }) => {
 
 
 export function SidebarContainer() {
-    const stateHome = useSelector(state => state.Home.home)
-    const dispatch = useDispatch()
+    const stateHome = useSelector(state => ({ ...state.Home.home }))
 
     const dashboard = stateHome[0]
     const hq = stateHome[1]
@@ -69,40 +71,30 @@ export function SidebarContainer() {
     const settings = stateHome[6]
     const modules = stateHome[7]
 
-    const [payload, setPayload] = useState({})
-
     return (
         <Sidebar>
             <Sidebar.ImageWrapper>
-                <Sidebar.LogoImage src={ImgLogo} alt="imageLogo" />
+                <a href={'/'}><Sidebar.LogoImage src={ImgLogo} alt="imageLogo" /></a>
             </Sidebar.ImageWrapper>
             <Gap height={20} />
             <Sidebar.WrapperContentSidebar>
                 <Sidebar.WrapperButtonStatus>
-                    <Sidebar.TextButtonStatus
-                        onClick={() => {
-                            setPayload({
-                                "id": "coupon-code",
-                                "isShowed": true,
-                                "isAllowed": false,
-                            })
-                            console.log(payload)
-
-                            dispatch({
-                                type: 'SET_MODULE_LIST',
-                                payload
-                            })
-                        }}>UPGRADE</Sidebar.TextButtonStatus>
+                    <Sidebar.TextButtonStatus><a href={'/'}>UPGRADE</a></Sidebar.TextButtonStatus>
                 </Sidebar.WrapperButtonStatus>
                 <Gap height={20} />
-                <MenuItem obj={dashboard} name='Dashboard' image={IcMenuActive} />
+                <Sidebar.WrapperItemMenu isAllowed>
+                    <Sidebar.IconMenuImage src={IcSetting} alt="imageIcon" />
+                    <Gap width={10} />
+                    <Sidebar.TextItemMenu isAllowed><a href="all-module">MODULE SETTING</a></Sidebar.TextItemMenu>
+                </Sidebar.WrapperItemMenu >
+                <MenuItem obj={modules} name='MODULE SETTING' image={IcModul} />
+                <MenuItem obj={dashboard} name='DASHBOARD' image={IcMenuActive} />
                 <MenuItem obj={hq} name='HQ' image={IcGlobe} />
                 <MenuItem obj={agent} name='AGENT' image={IcPemasaran} />
                 <MenuItem obj={orders} name='ORDERS' image={IcPesanan} />
                 <MenuItem obj={products} name='PRODUCTS' image={IcProducts} />
                 <MenuItem obj={webstore} name='WEBSTORE' image={IcPemasaran} />
                 <MenuItem obj={settings} name='SETTINGS' image={IcSetting} />
-                <MenuItem obj={modules} name='MODULES' image={IcModul} />
 
                 <Gap height={40} />
                 <Sidebar.WrapperItemMenu isAllowed>

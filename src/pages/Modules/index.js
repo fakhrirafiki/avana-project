@@ -13,7 +13,7 @@ export default function Modules() {
             <p className="text-modules-desc">Selamat datang di dashboard terbaru kami</p>
             <div className="wrapper-content">
                 <div className="wrapper-item-content">
-                    <p className="title-widget">Statistik Pesanan</p>
+                    <p className="title-widget">Pengaturan Module</p>
                     <Gap height={20} />
                     <ModulesTable />
                 </div>
