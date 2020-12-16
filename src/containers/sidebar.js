@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Sidebar, Gap } from '../components'
 import { IcMenuActive, ImgLogo, IcPesanan, IcProducts, IcDown, IcUp, IcGlobe, IcSetting, IcPemasaran, IcModul, IcTanggapan, IcLogout, IcNext } from '../assets'
 
@@ -31,40 +31,45 @@ const SubMunuItem = ({ child }) => {
     const [toggleSubSubMenu, setToggleSubSubMenu] = useState(false)
 
     if (!child.isShowed) return false
-    return (<>
-        <Sidebar.TextItemSubMenu isAllowed={child.isAllowed}
-            onMouseEnter={() => setToggleSubSubMenu(!toggleSubSubMenu)}
-            onMouseLeave={() => setToggleSubSubMenu(!toggleSubSubMenu)}
-        >
-            {child.id}
-            {child.childs && <Sidebar.IconButtonArrow src={IcNext} alt="imageIcon" />}
-            {child.childs && toggleSubSubMenu &&
-                <Sidebar.WrapperItemSubSubmenu >
-                    {
-                        child.childs.map((grandChild) => {
-                            if (!grandChild.isShowed) return false
-                            return <Sidebar.TextItemSubMenu isAllowed={grandChild.isAllowed} key={grandChild.id}>{grandChild.id}</Sidebar.TextItemSubMenu>
-                        })
-                    }
-                </Sidebar.WrapperItemSubSubmenu>
-            }
-        </Sidebar.TextItemSubMenu>
-    </>)
+    return (
+        <a href={`/${child.id}`} >
+
+            <Sidebar.TextItemSubMenu isAllowed={child.isAllowed}
+                onMouseEnter={() => setToggleSubSubMenu(!toggleSubSubMenu)}
+                onMouseLeave={() => setToggleSubSubMenu(!toggleSubSubMenu)}
+            >
+                {child.id}
+                {child.childs && <Sidebar.IconButtonArrow src={IcNext} alt="imageIcon" />}
+                {child.childs && toggleSubSubMenu &&
+                    <Sidebar.WrapperItemSubSubmenu >
+                        {
+                            child.childs.map((grandChild) => {
+                                if (!grandChild.isShowed) return false
+                                return <Sidebar.TextItemSubMenu isAllowed={grandChild.isAllowed} key={grandChild.id}>{grandChild.id}</Sidebar.TextItemSubMenu>
+                            })
+                        }
+                    </Sidebar.WrapperItemSubSubmenu>
+                }
+            </Sidebar.TextItemSubMenu>
+        </ a>)
 }
 
 
 
 export function SidebarContainer() {
-    const stateGlobal = useSelector(state => state)
+    const stateHome = useSelector(state => state.Home.home)
+    const dispatch = useDispatch()
 
-    const dashboard = stateGlobal.Home.home[0]
-    const hq = stateGlobal.Home.home[1]
-    const agent = stateGlobal.Home.home[2]
-    const orders = stateGlobal.Home.home[3]
-    const products = stateGlobal.Home.home[4]
-    const webstore = stateGlobal.Home.home[5]
-    const settings = stateGlobal.Home.home[6]
-    const modules = stateGlobal.Home.home[7]
+    const dashboard = stateHome[0]
+    const hq = stateHome[1]
+    const agent = stateHome[2]
+    const orders = stateHome[3]
+    const products = stateHome[4]
+    const webstore = stateHome[5]
+    const settings = stateHome[6]
+    const modules = stateHome[7]
+
+    const [payload, setPayload] = useState({})
 
     return (
         <Sidebar>
@@ -74,7 +79,20 @@ export function SidebarContainer() {
             <Gap height={20} />
             <Sidebar.WrapperContentSidebar>
                 <Sidebar.WrapperButtonStatus>
-                    <Sidebar.TextButtonStatus>UPGRADE</Sidebar.TextButtonStatus>
+                    <Sidebar.TextButtonStatus
+                        onClick={() => {
+                            setPayload({
+                                "id": "coupon-code",
+                                "isShowed": true,
+                                "isAllowed": false,
+                            })
+                            console.log(payload)
+
+                            dispatch({
+                                type: 'SET_MODULE_LIST',
+                                payload
+                            })
+                        }}>UPGRADE</Sidebar.TextButtonStatus>
                 </Sidebar.WrapperButtonStatus>
                 <Gap height={20} />
                 <MenuItem obj={dashboard} name='Dashboard' image={IcMenuActive} />
@@ -99,7 +117,7 @@ export function SidebarContainer() {
                     <Sidebar.TextItemMenu isAllowed>Logout</Sidebar.TextItemMenu>
                 </Sidebar.WrapperItemMenu>
             </Sidebar.WrapperContentSidebar>
-        </Sidebar>
+        </Sidebar >
 
     )
 }

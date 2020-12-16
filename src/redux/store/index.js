@@ -1,7 +1,10 @@
-import {createStore, applyMiddleware} from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducer from '../reducers'
 import thunk from 'redux-thunk'
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
+store.subscribe(() => {
+    console.log('rafiki', store.getState())
+})
 export default store

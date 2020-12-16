@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
     }
 
+    a{
+        text-decoration: none;
+    }
+
     /* width */
         ::-webkit-scrollbar {
         width: 3px;
