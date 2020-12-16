@@ -1,5 +1,6 @@
 import Home from './Home'
+import Modules from './Modules'
 import MainApp from './MainApp'
 
 
-export { Home, MainApp }
+export { Home, Modules, MainApp }
